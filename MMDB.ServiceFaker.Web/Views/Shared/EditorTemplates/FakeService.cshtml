@@ -1,0 +1,44 @@
+﻿@model MMDB.ServiceFaker.Web.Dto.FakeService
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>FakeService</legend>
+
+		<table class="table table-striped">
+			<tr>
+				<th>@Html.LabelFor(model => model.ServiceName)</th>
+				<td>
+					@Html.EditorFor(model => model.ServiceName)
+					@Html.ValidationMessageFor(model => model.ServiceName)
+				</td>
+			</tr>
+			<tr>
+				<th>@Html.LabelFor(model => model.RealEndpointRootUrl)</th>
+				<td>
+					@Html.EditorFor(model => model.RealEndpointRootUrl)
+					@Html.ValidationMessageFor(model => model.RealEndpointRootUrl)
+				</td>
+			</tr>
+			<tr>
+				<th>@Html.LabelFor(model => model.RelativeFakeRootUrl)</th>
+				<td>
+					@Html.EditorFor(model => model.RelativeFakeRootUrl)
+					@Html.ValidationMessageFor(model => model.RelativeFakeRootUrl)
+				</td>
+			</tr>
+			<tr>
+				<th>@Html.LabelFor(model => model.EnumFakeServiceResponseTypeID)</th>
+				<td>
+					@Html.EditorFor(model => model.EnumFakeServiceResponseTypeID, "Enum")
+					@Html.ValidationMessageFor(model => model.EnumFakeServiceResponseTypeID)
+				</td>
+			</tr>
+		</table>
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+

@@ -1,0 +1,29 @@
+﻿@model MMDB.ServiceFaker.Web.Dto.FakeService
+
+<fieldset>
+    <legend>FakeService</legend>
+
+	<table class="table">
+		<tr>
+			<th>Service Name</th>
+			<td>@Html.DisplayFor(model => model.ServiceName)</td>
+		</tr>
+		<tr>
+			<th>Real Endpoint Root URL</th>
+			<td>@Html.DisplayFor(model=>model.RealEndpointRootUrl)</td>
+		</tr>
+		<tr>
+			<th>Relative Fake Root URL</th>
+			<td>@Html.DisplayFor(model => model.RelativeFakeRootUrl)</td>
+		</tr>
+		<tr>
+			<th>Response Type</th>
+			<td>@Html.DisplayFor(model => model.EnumFakeServiceResponseTypeID, "Enum")</td>
+		</tr>
+	</table>
+</fieldset>
+In order to intercept these service calls, replace the URL <b>@Model.RealEndpointRootUrl/whatever</b> with <b>@Url.ContentFullPath("~/fake/" + Model.RelativeFakeRootUrl + "/whatever")</b>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

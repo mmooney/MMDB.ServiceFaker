@@ -1,0 +1,13 @@
+﻿@model Enum
+
+@{
+	var selectList = (from i in Enum.GetValues(Model.GetType()).Cast<object>()
+						select new 	SelectListItem
+						{
+							Value = i.ToString(),
+							Text = MMDB.Shared.EnumHelper.GetDisplayValue(i),
+							Selected = i.Equals(Model)
+						});
+}
+@Html.DropDownListFor(model => model, selectList)
+       
